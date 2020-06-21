@@ -25,6 +25,12 @@ app.get('/events', (req, res) => {
   res.render('events-index', { events: events })
 })
 
+// new
+app.get('/events/new', (req, res) => {
+  res.render('events-new', {});
+})
+
+
 // choose port 3000
 const port = process.env.PORT || 3000;
 
