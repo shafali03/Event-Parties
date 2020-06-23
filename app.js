@@ -1,8 +1,12 @@
 //Initialize express
 const express = require('express')
+
 const app = express()
 
 const exphbs = require('express-handlebars')
+
+const bodyParser = require('body-parser')
+
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 
@@ -28,6 +32,14 @@ app.get('/events', (req, res) => {
 // new
 app.get('/events/new', (req, res) => {
   res.render('events-new', {});
+})
+
+app.use(bodyParser.urlencoded({ extended: true }))
+
+
+// create
+app.post('/event', (req, res) => {
+  console.log(req.body)
 })
 
 
